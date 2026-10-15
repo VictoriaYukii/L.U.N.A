@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Costs — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<section class="sechead"><div id="range"></div><button class="ghost sm" id="exp">Export CSV</button></section>
+<section><div class="kpis" id="kpis"></div><p class="note" id="pricingNote"></p></section>
+<section><h2>cost per day</h2><div class="panel"><svg id="chart" role="img"></svg></div></section>
+<section class="cols even">
+  <div><h2>by chat</h2><div class="panel scroll"><table><thead><tr><th>chat</th><th class="n">requests</th><th class="n">tokens</th><th class="n">cost</th><th class="n">share</th></tr></thead><tbody id="byChat"></tbody></table></div></div>
+  <div id="userWrap"><h2>by user</h2><div class="panel scroll"><table><thead><tr><th>user</th><th class="n">requests</th><th class="n">tokens</th><th class="n">cost</th><th class="n">share</th></tr></thead><tbody id="byUser"></tbody></table></div></div>
+</section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/costs.js"></script>
+</body>
+</html>

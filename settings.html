@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Settings — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<section><h2>model &amp; limits</h2><div class="panel">
+  <div class="fgrid">
+    <div><label for="cName">name</label><input id="cName"></div>
+    <div><label for="cModel">model</label><input id="cModel"></div>
+    <div><label for="cProv">provider</label><input id="cProv"></div>
+    <div><label for="cVer">version</label><input id="cVer"></div>
+    <div><label for="cCtx">context window (tokens)</label><input id="cCtx" type="number" min="0"></div>
+    <div><label for="cTemp">temperature</label><input id="cTemp" type="number" step="0.1" min="0" max="2"></div>
+    <div><label for="cMax">max output tokens</label><input id="cMax" type="number" min="0"></div>
+    <div><label for="cPi">price per 1M input ($)</label><input id="cPi" type="number" step="0.01" min="0"></div>
+    <div><label for="cPo">price per 1M output ($)</label><input id="cPo" type="number" step="0.01" min="0"></div>
+    <div><label for="cLim">system budget (tokens / 30 days)</label><input id="cLim" type="number" min="1"></div>
+    <div><label for="cUq">default user quota (tokens / 30 days)</label><input id="cUq" type="number" min="1"></div>
+    <div class="full"><label for="cPrompt">system prompt</label><textarea id="cPrompt"></textarea></div>
+  </div>
+  <p class="note" id="saved" role="status"></p>
+</div></section>
+<section><h2>api keys — connect your real AI</h2><div class="panel">
+  <p class="note" style="margin-top:0">// your AI sends each request's tokens, latency and status to this dashboard with a key. a key is shown once, then stored hashed.</p>
+  <div class="fgrid"><div><label for="kname">key name</label><input id="kname" maxlength="60" placeholder="e.g. production bot"></div><div><button id="kadd" style="width:100%">Create key</button></div></div>
+  <div id="newkey"></div>
+  <p class="msg" id="kmsg" role="status"></p>
+  <div class="scroll"><table><thead><tr><th>name</th><th>key</th><th>created</th><th>last used</th><th>status</th><th class="n">actions</th></tr></thead><tbody id="ktable"></tbody></table></div>
+  <p class="note">// how your AI reports a request:</p>
+  <pre class="code" id="snippet"></pre>
+</div></section>
+<section><h2>data</h2><div class="panel">
+  <p class="note" style="margin-top:0">// everything is stored in your MySQL database. use mysqldump for full backups. this button exports every request as CSV.</p>
+  <div class="row"><button id="export">Export all requests (CSV)</button></div>
+</div></section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/settings.js"></script>
+</body>
+</html>

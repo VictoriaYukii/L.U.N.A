@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Users — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<section><div class="kpis" id="kpis"></div></section>
+<section><h2>accounts</h2><div class="panel scroll">
+  <label style="display:flex;gap:10px;align-items:center;margin:0 0 14px;color:var(--ink);font-size:13px"><input type="checkbox" id="signup" style="width:auto"> allow new people to create their own accounts</label>
+  <table><thead><tr><th>user</th><th>role</th><th>joined</th><th class="n">requests</th><th class="n">tokens (30d)</th><th class="n">quota</th><th class="n">used</th><th class="n">actions</th></tr></thead><tbody id="ubody"></tbody></table>
+  <p class="msg" id="umsg" role="status">// the first account created is the admin. new sign-ups are normal users.</p>
+</div></section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/users.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<div class="boot" id="boot" aria-hidden="true"></div>
+<section><div class="kpis" id="kpis"></div></section>
+<section class="cols">
+  <div><h2 id="budTitle">token budget</h2><div class="panel">
+    <div class="mh"><div class="big" id="used"></div><div class="sub" id="ofLimit"></div></div>
+    <div class="cells" id="cells" role="img"></div>
+    <div class="legend"><span><b style="background:var(--c1)"></b>input <span id="lIn"></span></span><span><b style="background:var(--c2)"></b>output <span id="lOut"></span></span></div>
+  </div></div>
+  <div><h2>daily tokens — last 14 days</h2><div class="panel"><svg id="chart" role="img"></svg><div style="margin-top:10px"><div class="legend"><span><b style="background:var(--c1)"></b>input</span><span><b style="background:var(--c2)"></b>output</span></div></div></div></div>
+</section>
+<section class="cols even">
+  <div><div class="sechead"><h2>active alerts</h2><a href="alerts.html">view all →</a></div><div class="panel" id="alerts"></div></div>
+  <div><h2>recent requests</h2><div class="panel scroll"><div class="con" id="con"></div></div></div>
+</section>
+<section><div class="sechead"><h2>top chats · 30 days</h2><a href="chats.html">all chats →</a></div><div class="panel" id="chats"></div></section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/overview.js"></script>
+</body>
+</html>

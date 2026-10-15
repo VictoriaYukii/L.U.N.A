@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Requests — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<section><h2>log a request</h2><div class="panel">
+  <div class="fgrid">
+    <div><label for="fc">chat</label><input id="fc" value="General" maxlength="40"></div>
+    <div><label for="fi">input tokens</label><input id="fi" type="number" min="0" value="1200"></div>
+    <div><label for="fo">output tokens</label><input id="fo" type="number" min="0" value="450"></div>
+    <div><label for="fm">latency (ms)</label><input id="fm" type="number" min="0" value="900"></div>
+    <div><label for="fst">status</label><select id="fst" style="width:100%"><option value="ok">ok</option><option value="error">error</option></select></div>
+    <div><button id="add" style="width:100%">Add request</button></div>
+  </div>
+  <p class="msg" id="amsg" role="status"></p>
+  <p class="note">// not linked to a live model yet. requests are logged to your own account.</p>
+</div></section>
+<section>
+  <div class="sechead"><h2>request log</h2><div class="tools"><input id="q" placeholder="search chat..." aria-label="Search chats"><select id="fs" aria-label="Filter by status"><option value="">all statuses</option><option value="ok">ok</option><option value="error">error</option></select><button class="ghost sm" id="exp">Export CSV</button></div></div>
+  <div class="panel scroll"><table><thead id="thead"></thead><tbody id="tb"></tbody></table>
+  <div class="pager"><span id="pinfo"></span><span class="tools"><button class="ghost sm" id="prev">Prev</button><button class="ghost sm" id="next">Next</button></span></div></div>
+</section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/requests.js"></script>
+</body>
+</html>

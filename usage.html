@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Token usage — Monitor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/api.js"></script>
+</head>
+<body>
+<main id="main">
+<section class="sechead"><div id="range"></div><button class="ghost sm" id="exp">Export CSV</button></section>
+<section><div class="panel"><div class="stats" id="stats" style="border:0;margin:0"></div></div></section>
+<section><h2 id="chartTitle">daily tokens</h2><div class="panel"><svg id="chart" role="img"></svg><div style="margin-top:10px"><div class="legend"><span><b style="background:var(--c1)"></b>input</span><span><b style="background:var(--c2)"></b>output</span></div></div></div></section>
+<section class="cols even">
+  <div><h2>by chat</h2><div class="panel" id="byChat"></div></div>
+  <div><h2 id="sideTitle">by user</h2><div class="panel" id="side"></div></div>
+</section>
+<section><h2>when it's used — tokens by hour of day</h2><div class="panel"><div id="heat"></div><div class="heatlab"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div></div></section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/usage.js"></script>
+</body>
+</html>
