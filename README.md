@@ -1,40 +1,33 @@
-# AI Monitor — setup (Laragon)
+🌙 L.U.N.A. — Logical Unified Neural Assistant Monitoring Dashboard
 
-1. Start Laragon (**Start All** — Apache + MySQL).
-2. Unzip this folder to `C:\laragon\www\ai-dashboard\` (so `login.html` and `api/` sit directly inside it).
-3. Open **http://ai-dashboard.test/api/install.php** once. It creates the `ai_monitor` database and tables.
-4. Open **http://ai-dashboard.test** and create your account. **The first account becomes the admin.**
-5. Optional: Settings -> API keys -> create a key so your real AI can report requests (see below).
+A centralized web dashboard for monitoring and managing **L.U.N.A. (Logical Unified Neural Assistant)**. This website provides visibility into the AI's usage, activity, API consumption, and operational performance through a unified interface.
 
-Laragon's MySQL defaults (user `root`, no password) already match `api/config.php`. If you changed them, edit that file.
+## Overview
 
-## Reporting requests from your AI
+The L.U.N.A. Monitoring Dashboard is designed to serve as the control and observation center for the L.U.N.A. AI system. It helps track how the AI operates, monitor resource consumption, and provide insights into its usage through an accessible and organized web interface.
 
-```
-POST http://ai-dashboard.test/api/ingest.php
-Authorization: Bearer aimon_xxxxxxxx            (or header  X-API-Key: aimon_xxxxxxxx)
-Content-Type: application/json
+## Features
 
-{"user":"alice","chat":"Support bot","input_tokens":1200,"output_tokens":450,"latency_ms":900,"status":"ok"}
-```
-Send `{"events":[ ... ]}` for up to 500 at once. `user` must be an existing account (omit it to use the key owner).
-Optional `timestamp_ms` backdates an event. `status` is `ok` or `error`.
+- **Usage Monitoring** — Track AI interactions, request counts, and usage statistics.
+- **API Consumption** — Monitor API usage, token consumption, and associated costs where supported by the connected provider.
+- **Activity Tracking** — Review request history, recent activity, and system events.
+- **Performance Monitoring** — Observe response times, request statuses, and operational metrics.
+- **System Overview** — View key statistics and relevant information from a centralized dashboard.
+- **Extensible Architecture** — Designed to accommodate additional monitoring tools, analytics, and management features as L.U.N.A. evolves.
 
-## Folders
-- `*.html`      the pages (login, overview, usage, requests, chats, performance, alerts, costs, users, settings, account)
-- `css/`, `js/` styling and logic (`js/api.js` talks to the backend, `js/data.js` holds the numbers)
-- `api/`        PHP backend (auth, bootstrap, requests, admin, ingest, install)
-- `database/`   `schema.sql` (the tables)
+## Purpose
 
-## Going live checklist
-- Use a host with PHP 8+ and MySQL/MariaDB (static-only hosts like Netlify can't run this).
-- Create a dedicated MySQL user (not root) with a strong password; set it in `api/config.php`, or via `AIMON_DB_*` environment variables.
-- Serve over HTTPS (cookies become `Secure` automatically).
-- Create your admin account first, then close sign-ups on the Users page if you don't want strangers registering.
-- Delete `api/install.php` after setup.
-- Apache: the included `.htaccess` files block `api/inc/` and `database/`. On Nginx, add equivalent `deny all` rules for those folders.
-- Back up the database with `mysqldump`.
+The goal of this project is to provide greater transparency and control over L.U.N.A.'s operations. By consolidating usage data and monitoring tools in one place, the dashboard makes it easier to understand consumption patterns, identify potential issues, and maintain an overview of the AI system.
 
-## Limits worth knowing
-- The dashboard loads the most recent 50,000 requests (last 65 days) and calculates charts in the browser. Beyond that, move the aggregation into SQL.
-- No email: an admin resets a forgotten password from the Users page.
+## Technology
+
+The dashboard is developed as a web application, with its frontend, backend, and monitoring integrations evolving alongside the project. AI usage and performance data depend on the APIs, services, and telemetry sources connected to the system.
+
+## Project Status
+
+This project is under active development. Features and monitoring capabilities may change as new integrations and improvements are introduced.
+
+---
+
+**L.U.N.A. Monitoring Dashboard**  
+*Monitor the intelligence. Understand the activity. Control the experience.*
